@@ -12,11 +12,6 @@ Most functionality is heavily based on [Out Of Your Element](https://gitdab.com/
 
 People you send the link to will have to login via Matrix, by clicking on a verification link sent to them by the bot. After that, accepting an invite will trigger a Matrix invite from the bot to the invitee, which they will have to manually accept.
 
-# Screeshots
-<img src="/docs/img/home.png" width="600" />
-<img src="/docs/img/links.png" width="600" />
-<img src="/docs/img/invite.png" width="600" />
-
 # Setup
 If you have any issues or questions, message me directly on [@v_risalab:vtubeando.net](https://matrix.to/#/@v_risalab:vtubeando.net) or join the official channel via [#msi:vtubeando.net](https://msi.vtubeando.net/gg?id=ea5fdb34)
 
@@ -59,10 +54,15 @@ New versions are alisted on [releases](https://github.com/vrisalab/matrix-simple
 1. Restart the bridge: Stop the currently running process, and then start the new one with `npm run start`
 
 
-----
-<br><br><br><br><br>
+# Screeshots
+<img src="/docs/img/home.png" width="600" />
+<img src="/docs/img/links.png" width="600" />
+<img src="/docs/img/invite.png" width="600" />
 
-# Appendix
+----
+<br><br>
+
+# Proxying MSI
 
 ## Example reverse proxy for nginx, dedicated domain name
 
