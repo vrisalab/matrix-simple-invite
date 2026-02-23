@@ -112,10 +112,10 @@ function defineEchoHandler() {
 		if (typeof portResponse.socket === "number") {
 			console.log(`Now listening on http://localhost:${portResponse.socket}. Feel free to send some test requests.`)
 		}
-		/** @type {{bridge_origin: string}} */
-		const bridgeOriginResponse = await prompt({
+		/** @type {{web_origin: string}} */
+		const webOriginResponse = await prompt({
 			type: "input",
-			name: "bridge_origin",
+			name: "web_origin",
 			message: "URL to reach MSI",
 			initial: () => `https://msi.${serverNameResponse.server_name}`,
 			validate: async url => {
@@ -132,11 +132,11 @@ function defineEchoHandler() {
 				}
 			}
 		})
-		bridgeOriginResponse.bridge_origin = bridgeOriginResponse.bridge_origin.replace(/\/+$/, "") // remove trailing slash
+		webOriginResponse.web_origin = webOriginResponse.web_origin.replace(/\/+$/, "") // remove trailing slash
 
 		await server.close()
 
-		console.log("Would you like to require a password to add your bot to servers? This will discourage others from using your bridge.")
+		console.log("Would you like to require a password to create invite links?")
 		/** @type {{web_password: string}} */
 		const passwordResponse = await prompt({
 			type: "text",
@@ -147,11 +147,11 @@ function defineEchoHandler() {
 		const template = getTemplateRegistration(serverNameResponse.server_name)
 		reg = {
 			...template,
-			url: bridgeOriginResponse.bridge_origin,
+			url: webOriginResponse.bridge_origin,
 			...portResponse,
 			msi: {
 				...template.msi,
-				...bridgeOriginResponse,
+				...webOriginResponse,
 				...passwordResponse,
 				server_origin: serverOrigin,
                 data_path: "./data"

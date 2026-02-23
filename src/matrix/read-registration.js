@@ -41,7 +41,8 @@ function getTemplateRegistration(serverName) {
 			server_name: serverName,
 			server_origin: "https://matrix.example.net",
 			web_origin: "https://msi.example.net",
-			content_length_workaround: false
+			content_length_workaround: false,
+			web_password: ""
 		}
 	}
 }
