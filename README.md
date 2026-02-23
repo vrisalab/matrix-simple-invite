@@ -1,4 +1,4 @@
-# matrix-simple-invite
+# Matrix simple invite
 Simple room and space invites for private and public matrix rooms, with an easy to use web interface, both for inviters and invitees.
 
 Most functionality is heavily based on [Out Of Your Element](https://gitdab.com/cadence/out-of-your-element), created by [@cadence:cadence.moe](https://matrix.to/#/@cadence:cadence.moe). I really liked the bridge's web interface and it already had a kind of "invite by mxid" functionality, so I figured it was a good start.
@@ -13,9 +13,9 @@ Most functionality is heavily based on [Out Of Your Element](https://gitdab.com/
 People you send the link to will have to login via Matrix, by clicking on a verification link sent to them by the bot. After that, accepting an invite will trigger a Matrix invite from the bot to the invitee, which they will have to manually accept.
 
 # Screeshots
-![Screenshot of the app showing the main interface, with a section for creating links and another one for managing them]("/docs/img/home.png)
-![Screenshot of the app showing the link management interface. Information like creator, room name, code, uses and expiry date is available]("/docs/img/links.png)
-![Screenshot of the invite interface. A room icon is shown, with text denoting who created the invite, and a big button to accept invites]("/docs/img/invite.png)
+<img src="/docs/img/home.png" width="600" />
+<img src="/docs/img/links.png" width="600" />
+<img src="/docs/img/invite.png" width="600" />
 
 # Setup
 If you have any issues or questions, message me directly on [@v_risalab:vtubeando.net](https://matrix.to/#/@v_risalab:vtubeando.net) or join the official channel via [#msi:vtubeando.net](https://msi.vtubeando.net/gg?id=ea5fdb34)
