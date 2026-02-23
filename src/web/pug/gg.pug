@@ -5,10 +5,7 @@ block body
     .s-empty-state.wmx4.p48
       != icons.Spots.SpotEmptyXL
       p You need to log in to create and accept invite links.
-      .d-flex.jc-center.g8
-        a.s-btn.s-btn__icon.s-btn__matrix.s-btn__filled(href=rel("/log-in-with-matrix"))
-          != icons.Icons.IconSpeechBubble
-          = ` Log in with Matrix`
+      include ./log-in-with-matrix.pug
   else
     .s-empty-state.wmx4.p48#form-container
       != icons.Spots.SpotEmptyXL
