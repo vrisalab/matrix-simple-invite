@@ -108,7 +108,7 @@ function defineEchoHandler() {
 
 		console.log("Now you need to enter a public URL that MSI's web server will live on.")
 		console.log("Set up your reverse proxy so that this URL accesses MSI.")
-		console.log("Examples: https://gitdab.com/cadence/out-of-your-element/src/branch/main/docs/get-started.md#appendix")
+		console.log("Examples: https://github.com/vrisalab/matrix-simple-invite/tree/main?tab=readme-ov-file#proxying-msi")
 		if (typeof portResponse.socket === "number") {
 			console.log(`Now listening on http://localhost:${portResponse.socket}. Feel free to send some test requests.`)
 		}
