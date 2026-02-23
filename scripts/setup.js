@@ -147,7 +147,7 @@ function defineEchoHandler() {
 		const template = getTemplateRegistration(serverNameResponse.server_name)
 		reg = {
 			...template,
-			url: webOriginResponse.bridge_origin,
+			url: webOriginResponse.web_origin,
 			...portResponse,
 			msi: {
 				...template.msi,

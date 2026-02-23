@@ -8,9 +8,14 @@ block body
       include ./log-in-form.pug
   else
     .s-empty-state.wmx4.p48#form-container
-      != icons.Spots.SpotEmptyXL
-      d-flex.fd-column
-        form.d-flex.jc-center.g8(method="post", action=rel("/api/invite") hx-post=rel("/api/invite") hx-indicator="#invite", hx-select="#ok", hx-target="#form-container")
+      .d-flex.fd-column
+        if link.room_icon
+          d-flex.jc-center.my8
+            img.of-none(src=`/thumbnail/${link.room_icon}` onerror="this.style.display='none'")
+        else
+          .d-flex.jc-center.my8!= icons.Spots.SpotEmptyXL
+        h2.d-flex.jc-center.my8= `${link.creator_name} (${link.creator_mxid}) invited you to ${link.room_name}`
+        form.d-flex.jc-center.my8(method="post", action=rel("/api/invite") hx-post=rel("/api/invite") hx-indicator="#invite", hx-select="#ok", hx-target="#form-container")
           input(type="hidden" name="id" value=invite_link_id)
           button.s-btn.s-btn__icon.s-btn__matrix.s-btn__filled#invite
             != icons.Icons.IconSpeechBubble

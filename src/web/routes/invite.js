@@ -51,19 +51,15 @@ as.router.get("/gg", defineEventHandler(async event => {
 	const {id: invite_link_id} = await getValidatedQuery(event, schema.gg.parse)
 	const session = await auth.useSession(event)
 
-	const link = from("invite_link").select("id","room_name", "room_icon", "creator_name", "creator_icon", "room_id", "uses", "max_uses", "expiration_date").where({id: invite_link_id}).get()
+	const link = from("invite_link").select("id", "creator_mxid", "room_name", "room_icon", "creator_name", "creator_icon", "room_id", "uses", "max_uses", "expiration_date").where({id: invite_link_id}).get()
 
 	if (link){
-		const room_name = link.room_name
-		const room_icon = link.room_icon
-		const creator_name = link.creator_name
-		const creator_icon = link.creator_icon
 
 		// Check invite validity
 		let validityError = isValidInvite(link)
 		if (validityError) return pugSync.render(event, "invalid_link.pug", {validityError})
 
-		return pugSync.render(event, "gg.pug", {session,  room_name, room_icon, creator_name, creator_icon, invite_link_id, next: "/gg?id=" + link.id})
+		return pugSync.render(event, "gg.pug", {session,  link, invite_link_id, next: "gg?id=" + link.id})
 	} else {
 		return pugSync.render(event, "invalid_link.pug", {validityError: "Link not found"})
 	}
