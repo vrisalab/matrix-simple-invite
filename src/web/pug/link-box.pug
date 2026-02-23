@@ -1,0 +1,24 @@
+extends includes/template.pug
+
+block body
+  .d-flex.g16.ai-center#ok
+    script.
+      async function copyText(element_id){
+         const textElement = document.querySelector(element_id);
+         if(!textElement) return;
+      
+         const text = textElement.value;
+      
+         try {
+           await navigator.clipboard.writeText(text);
+         } catch (err) {
+           console.error('Failed to copy text: ', err);
+         }
+      }
+    .d-flex.fd-column
+      label.s-label(for="link-url") Invite link
+      input.s-input#link-url(readonly="", type="text", value=link)
+    .d-flex.g4.fd-column
+      button.s-btn.s-btn__filled.s-btn__icon(onclick="copyText('#link-url')")
+        != icons.Icons.IconCopy
+        = " Copy"

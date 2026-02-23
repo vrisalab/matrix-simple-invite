@@ -1,0 +1,62 @@
+extends includes/template.pug
+
+block body
+    .s-page-title.mb24
+      h1.s-page-title--header Matrix Simple Invite
+
+    .d-grid.g24.grid__1.mb24(class="sm:grid__1")
+      .s-card.bs-md.d-flex.fd-column#form-container
+        .fl-grow1
+          h2.fs-headline1 Create invite link
+          p Creates an invite link. Users must login to Matrix before accepting.
+          p Accepted room addresses look like:
+          ul
+            li #roomalias:example.com
+            li !roomid:example.com
+            li https://matrix.to/#/!roomid:example.com?via=example.net
+            li https://matrix.to/#/#roomalias:example.com
+
+          .d-flex.g24.fw-wrap.ai-end
+            form.d-flex.g16.fw-wrap.ai-end(method="post" action=rel("/api/create-link") hx-post=rel("/api/create-link") hx-indicator="#create-link-button" hx-select="#ok" hx-target="#invite-link")
+              .d-flex.gy4.fd-column
+                label.s-label(for="room_id") Room Address
+                input.fl-grow1.s-input.wmx3#room-id(name="room_address" required placeholder="!roomid:example.com")
+              .d-flex.gy4.fd-column
+                label.s-label(for="valid_hours") Expiration
+                .s-select
+                  select#valid_hours(name="valid_hours", type="number")
+                    option(value="-1") Never
+                    option(value="1") 1 Hour
+                    option(value="6") 6 Hours
+                    option(value="24") 24 Hours
+                    option(value="72") 3 Days
+                    option(value="168") 1 Week
+              .d-flex.gy4.fd-column
+                label.s-label(for="uses") Uses
+                .s-select
+                  select#uses(name="uses")
+                    option(value="-1") No limits
+                    option(value="1") 1 Use
+                    option(value="5") 5 Uses
+                    option(value="10") 10 Uses
+                    option(value="20") 20 Uses
+                    option(value="50") 50 Uses
+                    option(value="100") 100 Uses
+              .d-flex
+                button.s-btn.s-btn__filled.s-btn__icon#create-link-button
+                  != icons.Icons.IconPlus
+                  = ` Create Link`
+            .d-flex#invite-link
+      .s-card.bs-md.d-flex.fd-column
+        h2.fs-headline1 Manage links
+        p Manage your invite links
+        .fl-grow1
+        a.s-btn.s-btn__outlined.s-btn__icon(href=rel("/manage-links"))
+          != icons.Icons.IconUnorderedList
+          = ` Manage Links`
+
+    .s-prose
+      block app-info
+        h2 What is this?
+        p This is a simple interface for creating invite links for Matrix rooms and spaces.
+        p To set this up, invite the bot to your room, and give it invite permissions. You will be able to create and manage invite codes for the room.

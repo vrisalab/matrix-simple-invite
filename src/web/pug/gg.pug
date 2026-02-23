@@ -1,0 +1,20 @@
+extends includes/template.pug
+
+block body
+  if !session.data.mxid
+    .s-empty-state.wmx4.p48
+      != icons.Spots.SpotEmptyXL
+      p You need to log in to create and accept invite links.
+      .d-flex.jc-center.g8
+        a.s-btn.s-btn__icon.s-btn__matrix.s-btn__filled(href=rel("/log-in-with-matrix"))
+          != icons.Icons.IconSpeechBubble
+          = ` Log in with Matrix`
+  else
+    .s-empty-state.wmx4.p48#form-container
+      != icons.Spots.SpotEmptyXL
+      d-flex.fd-column
+        form.d-flex.jc-center.g8(method="post", action=rel("/api/invite") hx-post=rel("/api/invite") hx-indicator="#invite", hx-select="#ok", hx-target="#form-container")
+          input(type="hidden" name="id" value=invite_link_id)
+          button.s-btn.s-btn__icon.s-btn__matrix.s-btn__filled#invite
+            != icons.Icons.IconSpeechBubble
+            = ` Invite me!`

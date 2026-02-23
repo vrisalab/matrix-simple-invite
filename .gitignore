@@ -1,0 +1,20 @@
+# Secrets
+config.js
+registration.yaml
+msi.db
+custom-webroot
+data
+
+# Branding
+static/
+
+# Automatically generated
+node_modules
+coverage
+test/res/*
+!test/res/lottie*
+icon.svg
+*~
+.#*
+\#*#
+launch.json

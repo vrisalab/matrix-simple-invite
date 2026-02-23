@@ -1,0 +1,41 @@
+extends includes/template.pug
+
+mixin room_info(link)
+  .s-user-card.s-user-card__small
+    .s-avatar.s-avatar__24.s-user-card--avatar 
+      img.s-avatar--image(src=`/thumbnail/${link.room_icon}` onerror="this.style.display='none'")
+    .s-user-card--info.ws-nowrap
+      .s-user-card--link.fs-body1
+        = link.room_name
+
+mixin creator_info(link)
+  .s-user-card.s-user-card__small
+    .s-avatar.s-avatar__24.s-user-card--avatar 
+      img.s-avatar--image(src=`/thumbnail/${link.creator_icon}` onerror="this.style.display='none'")
+    .s-user-card--info.ws-nowrap
+      .s-user-card--link.fs-body1
+        = link.creator_name
+
+block body
+  script.
+  .s-page-title.mb24
+    h1.s-page-title--header Manage invite links
+  .s-card.bs-sm.p0
+    form.s-table-container(method="post" action=rel("/api/delete-link"))
+      table.s-table.s-table__bx-simple
+        thead
+          tr
+            th(scope="col") Room
+            th(scope="col") Inviter
+            th(scope="col") Invite Code
+            th(scope="col") Uses
+            th(scope="col") Expires
+            th(scope="col")
+        each link in linkList
+          tr
+            td: +room_info(link)
+            td: +creator_info(link)
+            td: a(href=link.url)= link.id
+            td= link.uses
+            td= calculatedFields[link.id].remaining_time
+            td.p2: button.s-btn.s-btn__muted.s-btn__xs(name="invite_link_id" cx-prevent-default hx-post=rel("/api/delete-link") hx-confirm="Do you want to delete this link?" value=link.id hx-indicator="this" hx-disabled-elt="this")!= icons.Icons.IconClear
