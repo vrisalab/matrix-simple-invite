@@ -167,7 +167,7 @@ function defineEchoHandler() {
 
     // Initialize database and files
     fs.mkdirSync(join(reg.msi.data_path, "media"), { recursive: true, })
-    fs.mkdirSync("../static", { recursive: true, })
+    fs.mkdirSync("./static", { recursive: true, })
 
     const db = new sqlite(join(reg.msi.data_path, "msi.db"))
     Object.assign(passthrough, {sync, db})
