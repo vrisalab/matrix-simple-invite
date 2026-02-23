@@ -1,6 +1,23 @@
 extends includes/template.pug
 
 block body
+  - let locked = reg.msi.web_password && reg.msi.web_password !== session.data.password
+
+  if locked
+    aside.s-notice.s-notice__warning.p8
+      .d-flex.flex__center.jc-space-between.s-banner--container.g8(class="md:fw-wrap")
+        .d-flex.ai-center.g8
+          .flex--item!= icons.Icons.IconLock
+          p.m0 <strong>Private instance.</strong> You need the password to use this instance of Matrix Simple Bot.
+        form(method="post" action=rel("/api/password"))
+          input.s-input(placeholder="Enter password" name="password")
+
+    .h32
+
+    .s-page-title.mb24
+      h1.s-page-title--header Out Of Your Element
+
+  else
     .s-page-title.mb24
       h1.s-page-title--header Matrix Simple Invite
 

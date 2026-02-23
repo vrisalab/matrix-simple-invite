@@ -136,6 +136,14 @@ function defineEchoHandler() {
 
 		await server.close()
 
+		console.log("Would you like to require a password to add your bot to servers? This will discourage others from using your bridge.")
+		/** @type {{web_password: string}} */
+		const passwordResponse = await prompt({
+			type: "text",
+			name: "web_password",
+			message: "Choose a simple password (optional)"
+		})
+
 		const template = getTemplateRegistration(serverNameResponse.server_name)
 		reg = {
 			...template,
@@ -144,6 +152,7 @@ function defineEchoHandler() {
 			msi: {
 				...template.msi,
 				...bridgeOriginResponse,
+				...passwordResponse,
 				server_origin: serverOrigin,
                 data_path: "./data"
 			}

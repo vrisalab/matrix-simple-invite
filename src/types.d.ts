@@ -18,6 +18,7 @@ export type AppServiceRegistrationConfig = {
 		web_origin: string
 		data_path: string,
 		content_length_workaround: bool,
+		web_password: string
 	}
 	old_bridge?: {
 		as_token: string
@@ -44,6 +45,7 @@ export type InitialAppServiceRegistrationConfig = {
 		web_origin: string
 		data_path: string
 		content_length_workaround: bool
+		web_password: string
 	}
 }
 
