@@ -106,7 +106,7 @@ as.router.post("/api/create-link", defineEventHandler(async event => {
 	try {
 		await api.joinRoom(roomID, null, via)
 	} catch (e) {
-		throw createError({status: 400, message: "Unable To Join", data: `Unable to join the requested Matrix space. Please invite the bot to the room and try again. (Server said: ${e.errcode} - ${e.message})`})
+		throw createError({status: 400, message: "Unable To Join", data: `Unable to join the requested Matrix space. Please invite the bot (${utils.bot}) to the room and try again. (Server said: ${e.errcode} - ${e.message})`})
 	}
 
 	// Check that bot can create invites
