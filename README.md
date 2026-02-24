@@ -1,7 +1,20 @@
 # Matrix simple invite
-Simple room and space invites for private and public matrix rooms, with an easy to use web interface, both for inviters and invitees.
+Simple client-agnostic room and space invites for private and public matrix rooms, with an easy to use web interface, both for inviters and invitees. 
 
 Most functionality is heavily based on [Out Of Your Element](https://gitdab.com/cadence/out-of-your-element), created by @cadence:cadence.moe. I really liked the bridge's web interface and it already had a kind of "invite by mxid" functionality, so I figured it was a good start.
+
+# Features and Roadmap
+- [x] Authentication
+	- [x] User can authenticate by inputting their mxid, prompting the bot to send them a login link.
+- [ ] Invite link creation and management
+	- [x] Invite link creation with room ID, alias or matrix.to link
+	- [x] Invite link expiration and usage limits
+	- [x] Manage links created by user
+	- [ ] Manage links created for rooms where user is admin
+	- [ ] Keep a record of users, their rooms and power levels, such that it's possible to offer a dropdown with all the rooms where an invite can be created by that user
+- [x] Invitee flow
+	- [x] Invite link gives information about the room and the inviter
+	- [x] User can accept invite, prompting the bot to send an invite via Matrix
 
 # Usage
 
