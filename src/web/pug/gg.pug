@@ -2,10 +2,9 @@ extends includes/template.pug
 
 block body
   if !session.data.mxid
-    .s-empty-state.wmx4.p48
-      != icons.Spots.SpotWaveXL
-      h2 You need to log in to accept invite links
-      include ./log-in-form.pug
+    .s-page-title.mb24
+      h1.s-page-title--header Accept Invite
+    include ./log-in-form.pug
   else
     .s-empty-state.wmx4.p48#form-container
       .d-flex.fd-column

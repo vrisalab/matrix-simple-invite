@@ -17,6 +17,12 @@ block body
     .s-page-title.mb24
       h1.s-page-title--header Matrix Simple Invite
 
+  else if !session.data.mxid
+    .s-page-title.mb24
+      h1.s-page-title--header Matrix Simple Invite
+
+    include ./log-in-form.pug
+
   else
     .s-page-title.mb24
       h1.s-page-title--header Matrix Simple Invite
@@ -76,8 +82,18 @@ block body
   .s-prose
     block app-info
       h2 What is this?
-      p This is a simple web-based interface for creating invite links for Matrix rooms and spaces.
-      p To set this up, invite the bot to your room, and give it invite permissions. You will be able to create and manage invite codes for the room.
+      p This is a simple web-based interface for creating client-agnostic invite links for public and private Matrix rooms and spaces.
+      p To create invites:
+      ol
+        li Log in to the web interface by inputting your Matrix ID. You will be sent a verification link
+        li Invite the bot to the room you want to create invite links for. Make sure both you and the bot have invite permissions to the room.
+        li In the web interface, you can paste a room identifier in the specified format, configure the expiration date and number of uses.
+        li Copy the invite link and share!
+        li You can manage all your invite links clicking on the "Manage Links" button.
+      p To accept invites
+      ol
+        li Log in to the web interface by inputting your Matrix ID. You will be sent a verification link and be redirected to the link
+        li Click the "Invite Me" button to be sent an invite to the room by the bot, which you will have to manually accept.
 
     if locked
       block locked-info

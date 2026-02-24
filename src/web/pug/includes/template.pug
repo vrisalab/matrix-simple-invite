@@ -91,14 +91,6 @@ html(lang="en")
       .s-topbar--container.wmx9
         a.s-topbar--logo(href=rel("/"))
           != icons.Icons.IconHome
-        nav.s-topbar--navigation
-          ul.s-topbar--content
-            li.ps-relative.g8
-              if !session.data.mxid
-                a.s-btn.s-btn__icon.s-btn__matrix.s-btn__outlined.as-center(href=rel("/log-in-with-matrix"))
-                  != icons.Icons.IconSpeechBubble
-                  = ` Log in`
-                  span(class="sm:d-none")= ` with Matrix`
     //- Body
     .mx-auto.w100.wmx9.py24.px8.fs-body1#content
       block body
