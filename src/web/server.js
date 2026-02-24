@@ -102,7 +102,7 @@ as.router.get("/**", defineEventHandler(event => {
 }))
 
 as.router.get("/", defineEventHandler(async event => {
-	return (await tryStatic(event, true)) || pugSync.render(event, "home.pug", {})
+	return (await tryStatic(event, true)) || pugSync.render(event, "home.pug", {bot_mxid: mUtils.bot})
 }))
 
 as.router.get("/icon.png", defineEventHandler(async event => {

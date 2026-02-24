@@ -26,6 +26,7 @@ block body
         .fl-grow1
           h2.fs-headline1 Create invite link
           p Creates an invite link. Users must login to Matrix before accepting.
+          p You must invite the bot <code class="s-inline-code">#{bot_mxid}</code> to the room first, and make sure it has invite permissions`
           p Accepted room addresses look like:
           ul
             li #roomalias:example.com
@@ -66,7 +67,7 @@ block body
             .d-flex#invite-link
       .s-card.bs-md.d-flex.fd-column
         h2.fs-headline1 Manage links
-        p Manage your invite links
+        p Check your created links' status, such as expiration status and uses, and delete them if needed
         .fl-grow1
         a.s-btn.s-btn__outlined.s-btn__icon(href=rel("/manage-links"))
           != icons.Icons.IconUnorderedList

@@ -3,8 +3,8 @@ extends includes/template.pug
 block body
   if !session.data.mxid
     .s-empty-state.wmx4.p48
-      != icons.Spots.SpotAlertXL
-      p You need to log in to accept invite links.
+      != icons.Spots.SpotWaveXL
+      h2 You need to log in to accept invite links
       include ./log-in-form.pug
   else
     .s-empty-state.wmx4.p48#form-container
@@ -13,7 +13,7 @@ block body
           d-flex.jc-center.my8
             img.of-none(src=`/thumbnail/${link.room_icon}` onerror="this.style.display='none'")
         else
-          .d-flex.jc-center.my8!= icons.Spots.SpotEmptyXL
+          .d-flex.jc-center.my8!= icons.Spots.SpotBadgeXL
         h2.d-flex.jc-center.my8= `${link.creator_name} (${link.creator_mxid}) invited you to ${link.room_name}`
         form.d-flex.jc-center.my8(method="post", action=rel("/api/invite") hx-post=rel("/api/invite") hx-indicator="#invite", hx-select="#ok", hx-target="#form-container")
           input(type="hidden" name="id" value=invite_link_id)
