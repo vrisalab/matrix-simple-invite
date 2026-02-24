@@ -1,7 +1,7 @@
 # Matrix simple invite
 Simple room and space invites for private and public matrix rooms, with an easy to use web interface, both for inviters and invitees.
 
-Most functionality is heavily based on [Out Of Your Element](https://gitdab.com/cadence/out-of-your-element), created by [@cadence:cadence.moe](https://matrix.to/#/@cadence:cadence.moe). I really liked the bridge's web interface and it already had a kind of "invite by mxid" functionality, so I figured it was a good start.
+Most functionality is heavily based on [Out Of Your Element](https://gitdab.com/cadence/out-of-your-element), created by @cadence:cadence.moe. I really liked the bridge's web interface and it already had a kind of "invite by mxid" functionality, so I figured it was a good start.
 
 # Usage
 
@@ -11,9 +11,10 @@ Most functionality is heavily based on [Out Of Your Element](https://gitdab.com/
 4. You can manage all your invite links clicking on the "Manage Links" button. Click the "X" icon to delete an invite link.
 
 People you send the link to will have to login via Matrix, by clicking on a verification link sent to them by the bot. After that, accepting an invite will trigger a Matrix invite from the bot to the invitee, which they will have to manually accept.
+You can test the invitee user experience by joining the oficial channel with this [invite link](https://msi.vtubeando.net/gg?id=ea5fdb34).
 
 # Setup
-If you have any issues or questions, message me directly on [@v_risalab:vtubeando.net](https://matrix.to/#/@v_risalab:vtubeando.net) or join the official channel via [#msi:vtubeando.net](https://msi.vtubeando.net/gg?id=ea5fdb34)
+If you have any issues or questions, message me directly on [@v_risalab:vtubeando.net](https://matrix.to/#/@v_risalab:vtubeando.net) or join the official channel via [#msi:vtubeando.net](https://matrix.to/#/#msi:vtubeando.net)
 
 You'll need:
 
