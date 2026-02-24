@@ -78,11 +78,11 @@ block body
       p This is a simple web-based interface for creating invite links for Matrix rooms and spaces.
       p To set this up, invite the bot to your room, and give it invite permissions. You will be able to create and manage invite codes for the room.
 
-  if locked
-    block locked-info
-      h2 This is a private instance
-      p Anybody can run their own instance of the Matrix Simple Invite software. The person running this instance has made it private, so you can't add it to your server just yet. If you know who's in charge of #{reg.msi.server_name}, ask them for the password.
+    if locked
+      block locked-info
+        h2 This is a private instance
+        p Anybody can run their own instance of the Matrix Simple Invite software. The person running this instance has made it private, so you can't add it to your server just yet. If you know who's in charge of #{reg.msi.server_name}, ask them for the password.
 
-      h2 Run your own instance
-      p You can still use Matrix Simple Invite by running your own copy of the software, but this requires some technical skill.
-      p To get started, #[a(href="https://github.com/vrisalab/matrix-simple-invite") check the installation instructions.]
+        h2 Run your own instance
+        p You can still use Matrix Simple Invite by running your own copy of the software, but this requires some technical skill.
+        p To get started, #[a(href="https://github.com/vrisalab/matrix-simple-invite") check the installation instructions.]
