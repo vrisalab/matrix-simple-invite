@@ -103,7 +103,7 @@ as.router.post("/api/invite", defineEventHandler(async event => {
 	
 	// Update uses
 	db.transaction(() => {
-		db.prepare("UPDATE invite_link SET uses = (?) WHERE id = (?)").run(link.id, link.uses + 1)
+		db.prepare("UPDATE invite_link SET uses = (?) WHERE id = (?)").run(link.uses + 1, link.id)
 	})()
 
     return sendRedirect(event, "/ok?msg=You have been invited", 302)

@@ -188,10 +188,13 @@ as.router.post("/api/create-link", defineEventHandler(async event => {
  * @param {number} expiration_date 
  * @returns 
  */
-function get_reamining_time(expiration_date) {
+function remainingTimeString(expiration_date) {
   if(expiration_date==-1) return "Never"
 
   let diff = Math.floor((expiration_date - Date.now()) / 1000)
+	
+  if (diff < 0) return "Expired"
+  
   const units = [
 	{ d: 60, s: "", trim: false},
 	{ d: 60, s: ":", trim: false},
@@ -209,6 +212,17 @@ function get_reamining_time(expiration_date) {
 	diff = Math.floor(diff / unit.d);
   }
   return ddhhmmss
+}
+
+/**
+ * 
+ * @param {number} uses 
+ * @param {number} max_uses 
+ * @returns {string}
+ */
+function usesString(uses, max_uses){
+	if (max_uses == -1) return uses.toString()
+	return uses + '/' + max_uses
 }
 
 
@@ -240,9 +254,11 @@ as.router.get("/manage-links", defineEventHandler(async event => {
 	const links = from("invite_link").select("room_name", "room_icon", "creator_name", "creator_icon", "creator_mxid", "room_id", "uses", "max_uses", "expiration_date", "id", "url").where({creator_mxid: session.data.mxid}).all()
 	let calculatedFields = {}
 	for(const link of links){
-		let remaining_time = get_reamining_time(link.expiration_date)	
+		let remaining_time = remainingTimeString(link.expiration_date)	
+		let uses_string = usesString(link.uses, link.max_uses)
 		calculatedFields[link.id] = {
-			"remaining_time": remaining_time
+			"remaining_time": remaining_time,
+			"uses_string": uses_string
 		}
 	}
 
