@@ -59,11 +59,11 @@ Follow these steps:
 
 ## Update
 
-New versions are alisted on [releases](https://github.com/vrisalab/matrix-simple-invite/releases). Here's how to update:
+New versions are alisted on [releases](https://github.com/vrisalab/matrix-simple-invite/releases). **Make sure to back your database up before any upgrades**. Here's how to update:
 
 1. Fetch the repo and checkout the latest release tag.
 
-1. Install dependencies: `npm install`
+1. Install dependencies: `npm install`fixable
 
 1. Restart the bridge: Stop the currently running process, and then start the new one with `npm run start`
 
