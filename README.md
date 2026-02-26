@@ -59,7 +59,7 @@ Follow these steps:
 
 ## Update
 
-New versions are alisted on [releases](https://github.com/vrisalab/matrix-simple-invite/releases). **Make sure to back your database up before any upgrades**. Here's how to update:
+New versions are listed on [releases](https://github.com/vrisalab/matrix-simple-invite/releases). **Make sure to back your database up before any upgrades**. Here's how to update:
 
 1. Fetch the repo and checkout the latest release tag.
 
