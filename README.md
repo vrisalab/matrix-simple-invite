@@ -1,5 +1,5 @@
 # Matrix simple invite
-Simple client-agnostic room and space invites for private and public matrix rooms, with an easy to use web interface, both for inviters and invitees. 
+Simple client-agnostic room and space invites for private and public matrix rooms, with an easy to use web interface, both for inviters and invitees. You can freely use [my instance of MSI](https://msi.vtubeando.net/), which I plan to keep running on the long term (Note: This instance's bot has custom branding).
 
 Most functionality is heavily based on [Out Of Your Element](https://gitdab.com/cadence/out-of-your-element), created by @cadence:cadence.moe. I really liked the bridge's web interface and it already had a kind of "invite by mxid" functionality, so I figured it was a good start.
 
