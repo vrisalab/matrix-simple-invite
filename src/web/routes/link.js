@@ -52,12 +52,15 @@ async function parseRoomAddress(address, api){
 		try {
 			return (await api.getAlias(address))
 		} catch (e) {
+			return null
 		}
 	}
-	const address_url = new URL(address)
-	if(address_url.hostname == "matrix.to"){
-		return parseRoomAddress(address_url.hash.slice(2).split("?")[0], api)
-	}
+	try{
+		const address_url = new URL(address)
+		if(address_url.hostname == "matrix.to"){
+			return parseRoomAddress(address_url.hash.slice(2).split("?")[0], api)
+		}
+	} catch(e) {}
 	return null
 }
 
@@ -93,7 +96,7 @@ as.router.post("/api/create-link", defineEventHandler(async event => {
 	// Parse room address
 	const roomID = await parseRoomAddress(parsedBody.room_address, api)	
 	if(!roomID){
-		throw createError({status: 400, message: "Bad room address", data: "Room address is not in one of the accepted formats"})
+		throw createError({status: 400, message: "Bad room address", data: `Room address ${parsedBody.room_address} is not in one of the accepted formats`})
 	}
 
 	const inviteServer = roomID.match(/:(.*)/)?.[1]
